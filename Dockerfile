@@ -22,6 +22,7 @@ RUN apt-get update && \
     libpng-dev \
     libtiff-dev \
     libjasper-dev \
+    libavformat-dev \
     && apt-get -y clean all \
     && rm -rf /var/lib/apt/lists/*
 
@@ -30,7 +31,7 @@ RUN wget https://github.com/Itseez/opencv/archive/3.0.0.zip \
     && unzip 3.0.0.zip \
     && mkdir /opencv-3.0.0/cmake_binary \
     && cd /opencv-3.0.0/cmake_binary \
-    && cmake -DBUILD_opencv_video=OFF -DBUILD_opencv_videoio=OFF .. \
+    && cmake .. \
     && make install \
     && rm /3.0.0.zip \
     && rm -r /opencv-3.0.0
