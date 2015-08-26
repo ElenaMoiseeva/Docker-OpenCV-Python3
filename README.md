@@ -3,5 +3,5 @@
 
 Info:
 
-This installation doesn't include the libraries for the camera, GTK+.
+This installation doesn't include the libraries for the camera, audio, video, GTK+.
 
