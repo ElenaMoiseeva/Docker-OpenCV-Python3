@@ -27,12 +27,13 @@ RUN apt-get update && \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
-RUN wget https://github.com/Itseez/opencv/archive/3.0.0.zip \
-    && unzip 3.0.0.zip \
-    && mkdir /opencv-3.0.0/cmake_binary \
-    && cd /opencv-3.0.0/cmake_binary \
+
+RUN cv_version='3.1.0' \
+    && wget https://github.com/Itseez/opencv/archive/"$cv_version".zip \
+    && unzip "$cv_version".zip \
+    && mkdir /opencv-"$cv_version"/cmake_binary \
+    && cd /opencv-"$cv_version"/cmake_binary \
     && cmake .. \
     && make install \
-    && rm /3.0.0.zip \
-    && rm -r /opencv-3.0.0
-
+    && rm /"$cv_version".zip \
+    && rm -r /opencv-"$cv_version"
